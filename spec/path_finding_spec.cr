@@ -41,6 +41,9 @@ describe PathFinding do
 
       PathFinding.find_path({0 => [1, 2, 3], 2 => [3, 4, 5], 5 => [7, 8, 11]}, 0, 11)
         .should eq({true, [0, 2, 5, 11]})
+
+      PathFinding.find_path({0 => [1, 2, 3], 2 => [3, 4, 5], 5 => [7, 0, 8, 11]}, 0, 11)
+        .should eq({true, [0, 2, 5, 11]})
     end
   end
 end
