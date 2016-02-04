@@ -14,7 +14,7 @@ describe PathFinding do
   # finish : Int32)
 
   describe "#find_path" do
-    empty_graph = {} of Int32 => Int32
+    empty_graph = {} of Int32 => Array(Int32)
     empty_path = [] of Int32
 
     it "finds any path" do
