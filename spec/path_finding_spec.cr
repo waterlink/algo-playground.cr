@@ -10,7 +10,8 @@ describe PathFinding do
   # to reach from start to finish, and if it is returns any path.
   #
   # Then the signature would look like:
-  # def self.find_path(graph : Hash(Int32, Int32), start : Int32, finish : Int32)
+  # def self.find_path(graph : Hash(Int32, Array(Int32)), start : Int32,
+  # finish : Int32)
 
   describe "#find_path" do
     empty_graph = {} of Int32 => Int32
