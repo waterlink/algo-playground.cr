@@ -40,7 +40,7 @@ notify() {
 }
 
 commit_message() {
-  ! [[ -z "FUNNY_COMMIT" ]] && curl http://whatthecommit.com/index.txt
+  ! [[ -z "$FUNNY_COMMIT" ]] && echo -n " " && curl http://whatthecommit.com/index.txt
 }
 
 watch src spec \
