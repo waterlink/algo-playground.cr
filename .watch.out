@@ -1,18 +1,4 @@
-.F
+..
 
-Failures:
-
-  1) PathFinding #find_path finds any path
-     Failure/Error: PathFinding.find_path(empty_graph, 0, 0).should eq({true, [0]})
-
-       expected: {true, [0]}
-            got: {false, []}
-
-[36m     # ./spec/path_finding_spec.cr:21[0m
-
-Finished in 0.66 milliseconds
-2 examples, 1 failures, 0 errors, 0 pending
-
-Failed examples:
-
-[31mcrystal spec ./spec/path_finding_spec.cr:19[0m[36m # PathFinding #find_path finds any path[0m
+Finished in 0.55 milliseconds
+2 examples, 0 failures, 0 errors, 0 pending

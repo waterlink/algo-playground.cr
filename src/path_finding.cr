@@ -1,5 +1,7 @@
 module PathFinding
   def self.find_path(graph, start, finish)
+    return {true, [start]} if start == finish
+
     {false, empty_path}
   end
 
