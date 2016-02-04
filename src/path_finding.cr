@@ -9,24 +9,11 @@ module PathFinding
     edges = graph.fetch(start, no_edges)
 
     i = 0
-    if edges.size > i
+    while edges.size > i
       if graph.fetch(edges[i], no_edges).includes?(finish)
         return {true, [start, edges[i], finish]}
       end
-    end
-
-    i = 1
-    if edges.size > i
-      if graph.fetch(edges[i], no_edges).includes?(finish)
-        return {true, [start, edges[i], finish]}
-      end
-    end
-
-    i = 2
-    if edges.size > i
-      if graph.fetch(edges[i], no_edges).includes?(finish)
-        return {true, [start, edges[i], finish]}
-      end
+      i += 1
     end
 
     {false, empty_path}
