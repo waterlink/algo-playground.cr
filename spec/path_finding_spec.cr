@@ -22,6 +22,7 @@ describe PathFinding do
       PathFinding.find_path(empty_graph, 0, 0).should eq({true, [0]})
       PathFinding.find_path({0 => [1]}, 0, 1).should eq({true, [0, 1]})
       PathFinding.find_path({0 => [1, 2]}, 0, 1).should eq({true, [0, 1]})
+      PathFinding.find_path({0 => [2, 1]}, 0, 1).should eq({true, [0, 1]})
     end
   end
 end
