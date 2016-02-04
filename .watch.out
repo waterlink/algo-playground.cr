@@ -1,33 +1,4 @@
-.E
+..
 
-Failures:
-
-  1) PathFinding #find_path finds any path
-
-       Index out of bounds
-       [4536835794] *CallStack::unwind:Array(Pointer(Void)) +82
-       [4536835697] *CallStack#initialize<CallStack>:Array(Pointer(Void)) +17
-       [4536835656] *CallStack::new:CallStack +40
-       [4536844625] *Exception@Exception#initialize<IndexError, String>:CallStack +33
-       [4536844557] *IndexError#initialize<IndexError, String>:CallStack +29
-       [4536844492] *IndexError::new<String>:IndexError +92
-       [4536844380] *IndexError::new:IndexError +28
-       [4536818122] *Array(Int32)@Array(T)#first<Array(Int32)>:Int32 +26
-       [4536993980] *PathFinding::find_path<Hash(Int32, Array(Int32)), Int32, Int32>:{Bool, Array(Int32)} +172
-       [4536804894] ~fun_literal_38 +78
-       [4536803401] *it<String, String, Int32, &( -> Void)>:(Nil | Bool | Array(Spec::Result)) +377
-       [4536804792] ~fun_literal_37 +104
-       [4536938275] *Spec::RootContext::describe<String, String, Int32, &( -> Void)>:Spec::Context+ +195
-       [4536804675] *describe<String, String, Int32, &( -> Void)>:Spec::Context+ +51
-       [4536804604] ~fun_literal_36 +108
-       [4536938275] *Spec::RootContext::describe<String, String, Int32, &( -> Void)>:Spec::Context+ +195
-       [4536804483] *describe<PathFinding:Module, String, Int32, &( -> Void)>:Spec::Context+ +51
-       [4536791856] __crystal_main +45920
-       [4536800008] main +40
-
-Finished in 0.6 milliseconds
-2 examples, 0 failures, 1 errors, 0 pending
-
-Failed examples:
-
-[31mcrystal spec ./spec/path_finding_spec.cr:20[0m[36m # PathFinding #find_path finds any path[0m
+Finished in 0.57 milliseconds
+2 examples, 0 failures, 0 errors, 0 pending
