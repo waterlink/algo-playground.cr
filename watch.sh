@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 AUTO_COMMIT=${AUTO_COMMIT:-""}
+FUNNY_COMMIT=${FUNNY_COMMIT:-""}
 
 os="$(uname)"
 
@@ -38,6 +39,10 @@ notify() {
   fi
 }
 
+commit_message() {
+  ! [[ -z "FUNNY_COMMIT" ]] && curl http://whatthecommit.com/index.txt
+}
+
 watch src spec \
   | while read change; do
     crystal spec --no-color > .watch.out
@@ -45,12 +50,12 @@ watch src spec \
     committed=
 
     if [[ $res -eq 0 ]]; then
-      ! [[ -z "$AUTO_COMMIT" ]] && git add . && git commit -m "[GREEN] Change $(next_change)" && committed="(committed)"
+      ! [[ -z "$AUTO_COMMIT" ]] && git add . && git commit -m "[GREEN] Change $(next_change)$(commit_message)" && committed="(committed)"
       notify --expire-time=1000 "SUCCESS $committed"
     else
       failure=$(cat .watch.out | grep 'Failure\|expected:\|got:\|Error in')
       cat .watch.out
-      ! [[ -z "$AUTO_COMMIT" ]] && git add . && git commit -m "[RED] Change $(next_change)" && committed="(committed)"
+      ! [[ -z "$AUTO_COMMIT" ]] && git add . && git commit -m "[RED] Change $(next_change)$(commit_message)" && committed="(committed)"
       notify --expire-time=3000 "FAILURE:$failure $committed"
     fi
 done
