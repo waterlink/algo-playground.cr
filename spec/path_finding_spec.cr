@@ -18,6 +18,7 @@ describe PathFinding do
 
     it "finds any path" do
       PathFinding.find_path(empty_graph, 0, 1).should eq({false, empty_path})
+      PathFinding.find_path(empty_graph, 0, 0).should eq({true, [0]})
     end
   end
 end
