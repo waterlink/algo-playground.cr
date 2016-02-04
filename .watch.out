@@ -1,4 +1,18 @@
-..
+.F
 
-Finished in 0.55 milliseconds
-2 examples, 0 failures, 0 errors, 0 pending
+Failures:
+
+  1) PathFinding #find_path finds any path
+     Failure/Error: PathFinding.find_path({0 => 1}, 0, 1).should eq({true, [0, 1]})
+
+       expected: {true, [0, 1]}
+            got: {false, []}
+
+[36m     # ./spec/path_finding_spec.cr:22[0m
+
+Finished in 0.61 milliseconds
+2 examples, 1 failures, 0 errors, 0 pending
+
+Failed examples:
+
+[31mcrystal spec ./spec/path_finding_spec.cr:19[0m[36m # PathFinding #find_path finds any path[0m
