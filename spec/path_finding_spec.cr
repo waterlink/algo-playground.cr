@@ -17,7 +17,7 @@ describe PathFinding do
     empty_path = [] of Int32
 
     it "finds any path" do
-      PathFinding.find_path(empty_graph, 0, 0).should eq({false, empty_path})
+      PathFinding.find_path(empty_graph, 0, 1).should eq({false, empty_path})
     end
   end
 end
