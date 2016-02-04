@@ -4,27 +4,28 @@ Failures:
 
   1) PathFinding #find_path finds any path
 
-       Missing hash key: 0
-       [4321836546] *CallStack::unwind:Array(Pointer(Void)) +82
-       [4321836449] *CallStack#initialize<CallStack>:Array(Pointer(Void)) +17
-       [4321836408] *CallStack::new:CallStack +40
-       [4321923073] *KeyError@Exception#initialize<KeyError, String, Nil>:CallStack +33
-       [4321923004] *KeyError::new<String>:KeyError +92
-       [4321995441] *Hash(Int32, Array(Int32))@Hash(K, V)#fetch<Hash(Int32, Array(Int32)), Int32>:Array(Int32) +129
-       [4321995305] *Hash(Int32, Array(Int32))@Hash(K, V)#[]<Hash(Int32, Array(Int32)), Int32>:Array(Int32) +9
-       [4321994796] *PathFinding::find_path<Hash(Int32, Array(Int32)), Int32, Int32>:{Bool, Array(Int32)} +156
-       [4321805582] ~fun_literal_38 +78
-       [4321804089] *it<String, String, Int32, &( -> Void)>:(Nil | Bool | Array(Spec::Result)) +377
-       [4321805480] ~fun_literal_37 +104
-       [4321939107] *Spec::RootContext::describe<String, String, Int32, &( -> Void)>:Spec::Context+ +195
-       [4321805363] *describe<String, String, Int32, &( -> Void)>:Spec::Context+ +51
-       [4321805292] ~fun_literal_36 +108
-       [4321939107] *Spec::RootContext::describe<String, String, Int32, &( -> Void)>:Spec::Context+ +195
-       [4321805171] *describe<PathFinding:Module, String, Int32, &( -> Void)>:Spec::Context+ +51
-       [4321792544] __crystal_main +45920
-       [4321800696] main +40
+       Index out of bounds
+       [4536835794] *CallStack::unwind:Array(Pointer(Void)) +82
+       [4536835697] *CallStack#initialize<CallStack>:Array(Pointer(Void)) +17
+       [4536835656] *CallStack::new:CallStack +40
+       [4536844625] *Exception@Exception#initialize<IndexError, String>:CallStack +33
+       [4536844557] *IndexError#initialize<IndexError, String>:CallStack +29
+       [4536844492] *IndexError::new<String>:IndexError +92
+       [4536844380] *IndexError::new:IndexError +28
+       [4536818122] *Array(Int32)@Array(T)#first<Array(Int32)>:Int32 +26
+       [4536993980] *PathFinding::find_path<Hash(Int32, Array(Int32)), Int32, Int32>:{Bool, Array(Int32)} +172
+       [4536804894] ~fun_literal_38 +78
+       [4536803401] *it<String, String, Int32, &( -> Void)>:(Nil | Bool | Array(Spec::Result)) +377
+       [4536804792] ~fun_literal_37 +104
+       [4536938275] *Spec::RootContext::describe<String, String, Int32, &( -> Void)>:Spec::Context+ +195
+       [4536804675] *describe<String, String, Int32, &( -> Void)>:Spec::Context+ +51
+       [4536804604] ~fun_literal_36 +108
+       [4536938275] *Spec::RootContext::describe<String, String, Int32, &( -> Void)>:Spec::Context+ +195
+       [4536804483] *describe<PathFinding:Module, String, Int32, &( -> Void)>:Spec::Context+ +51
+       [4536791856] __crystal_main +45920
+       [4536800008] main +40
 
-Finished in 0.62 milliseconds
+Finished in 0.6 milliseconds
 2 examples, 0 failures, 1 errors, 0 pending
 
 Failed examples:
