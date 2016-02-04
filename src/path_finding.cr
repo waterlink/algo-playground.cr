@@ -9,7 +9,7 @@ module PathFinding
     graph.fetch(start, no_edges).each do |hop|
       ok, path = find_path(graph, hop, finish)
       if ok
-        return {true, [start, hop] + path}
+        return {true, [start] + path}
       end
     end
 
