@@ -7,8 +7,9 @@ module PathFinding
     end
 
     graph.fetch(start, no_edges).each do |hop|
-      if graph.fetch(hop, no_edges).includes?(finish)
-        return {true, [start, hop, finish]}
+      ok, path = find_path(graph, hop, finish)
+      if ok
+        return {true, [start, hop] + path}
       end
     end
 
