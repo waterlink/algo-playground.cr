@@ -2,7 +2,7 @@ module PathFinding
   def self.find_path(graph, start, finish)
     return {true, [start]} if start == finish
 
-    if graph.fetch(start, [start]).first == finish
+    if graph.fetch(start, [start]).includes?(finish)
       return {true, [start, finish]}
     end
 
