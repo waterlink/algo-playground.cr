@@ -6,10 +6,13 @@ module PathFinding
       return {true, [start, finish]}
     end
 
+    edges = graph.fetch(start, no_edges)
+
     i = 0
-    hop = graph.fetch(start, no_edges)[i]? || start
-    if graph.fetch(hop, no_edges).includes?(finish)
-      return {true, [start, hop, finish]}
+    if edges.size > i
+      if graph.fetch(edges[i], no_edges).includes?(finish)
+        return {true, [start, edges[i], finish]}
+      end
     end
 
     hop = graph.fetch(start, no_edges)[1]? || start
