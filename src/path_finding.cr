@@ -2,10 +2,6 @@ module PathFinding
   def self.find_path(graph, start, finish)
     return {true, [start]} if start == finish
 
-    if graph.fetch(start, no_edges).includes?(finish)
-      return {true, [start, finish]}
-    end
-
     graph.fetch(start, no_edges).each do |hop|
       ok, path = find_path(graph, hop, finish)
       return {true, [start] + path} if ok
