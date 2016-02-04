@@ -10,7 +10,7 @@ Failures:
 
 [36m     # ./spec/path_finding_spec.cr:27[0m
 
-Finished in 0.65 milliseconds
+Finished in 0.9 milliseconds
 2 examples, 1 failures, 0 errors, 0 pending
 
 Failed examples:
