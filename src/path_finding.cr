@@ -6,6 +6,11 @@ module PathFinding
       return {true, [start, finish]}
     end
 
+    hop = graph.fetch(start, [start]).first
+    if graph.fetch(hop, [hop]).first == finish
+      return {true, [start, hop, finish]}
+    end
+
     {false, empty_path}
   end
 
