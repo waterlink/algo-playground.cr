@@ -57,4 +57,15 @@ describe Sort do
     b.cmps.should be < n * Math.log(n) * c
     b.swaps.should be < n * Math.log(n) * c
   end
+
+  it "is fast enough given ordered array" do
+    a = Sort.sort(big_array)
+
+    n = big_array.size
+    c = 2.5
+    b = Bench.new
+    Sort.sort(big_array, b)
+    b.cmps.should be < n * Math.log(n) * c
+    b.swaps.should be < n * Math.log(n) * c
+  end
 end
