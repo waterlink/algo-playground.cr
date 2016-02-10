@@ -11,10 +11,11 @@ module Sort
     return unless l < r - 1
 
     p = a[l]
+    h = l
 
     if l + 1 < r - 1
       if bigger(a, p, l + 1, bench)
-        swap(a, p, l + 1, bench)
+        swap(a, h, l + 1, bench)
       end
     end
   end
