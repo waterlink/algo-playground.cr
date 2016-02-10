@@ -10,16 +10,22 @@ module Sort
   private def sort!(a, l, r, bench)
     return unless l < r - 1
 
-    if bigger(a, l, r - 1, bench)
-      swap(a, l, r - 1, bench)
+    if l < r - 1
+      if bigger(a, l, r - 1, bench)
+        swap(a, l, r - 1, bench)
+      end
     end
 
-    if bigger(a, l, r - 2, bench)
-      swap(a, l, r - 2, bench)
+    if l < r - 2
+      if bigger(a, l, r - 2, bench)
+        swap(a, l, r - 2, bench)
+      end
     end
 
-    if bigger(a, l, r - 3, bench)
-      swap(a, l, r - 3, bench)
+    if l < r - 3
+      if bigger(a, l, r - 3, bench)
+        swap(a, l, r - 3, bench)
+      end
     end
 
     sort!(a, l + 1, r, bench)
