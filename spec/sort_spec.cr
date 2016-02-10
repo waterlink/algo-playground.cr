@@ -20,6 +20,7 @@ describe Sort do
     Sort.sort([2, 1, 3]).should eq([1, 2, 3])
     Sort.sort([2, 3, 1]).should eq([1, 2, 3])
     Sort.sort([3, 2, 1]).should eq([1, 2, 3])
+    Sort.sort([3, 1, 2]).should eq([1, 2, 3])
   end
 
   it "does not modify original array" do
