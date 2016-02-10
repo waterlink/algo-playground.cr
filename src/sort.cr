@@ -3,17 +3,17 @@ module Sort
 
   def sort(a, bench=nil)
     a = a.dup
-    sort!(a, 0, bench)
+    sort!(a, 0, a.size, bench)
     a
   end
 
-  private def sort!(a, l, bench)
+  private def sort!(a, l, r, bench)
     return unless l < a.size
 
     h = l
-    h2 = a.size - 1
+    h2 = r - 1
     i = l + 1
-    while a.size > i
+    while r > i
       if bigger(a, l, i, bench)
         swap(a, h, i, bench)
         h += 1
@@ -24,7 +24,8 @@ module Sort
       i += 1
     end
 
-    sort!(a, l + 1, bench)
+    sort!(a, l, h, bench)
+    sort!(a, h + 1, r, bench)
   end
 
   private def empty
