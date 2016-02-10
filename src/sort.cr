@@ -28,6 +28,9 @@ module Sort
     end
 
     swap(a, h, r - 1, bench)
+
+    sort!(a, l, h, bench)
+    sort!(a, h + 1, r, bench)
   end
 
   private def empty
