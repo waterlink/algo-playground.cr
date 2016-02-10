@@ -16,15 +16,13 @@ module Sort
   end
 
   private def partition(a, l, r, bench)
-    swap(a, l + rand(r - l), r - 1, bench)
-    p = a[r - 1]
-    h = l
-
-    (l...r).each do |i|
-      h = correct_order(a, p, h, i, bench)
+    with_pivot(a, l, r, bench) do |p|
+      h = l
+      (l...r).each do |i|
+        h = correct_order(a, p, h, i, bench)
+      end
     end
 
-    swap(a, h, r - 1, bench)
     h
   end
 
@@ -35,6 +33,12 @@ module Sort
     end
 
     h
+  end
+
+  private def with_pivot(a, l, r, bench)
+    swap(a, l + rand(r - l), r - 1, bench)
+    yield(a[r - 1])
+    swap(a, h, r - 1, bench)
   end
 
   private def empty
