@@ -59,12 +59,12 @@ describe Sort do
   end
 
   it "is fast enough given ordered array" do
-    a = Sort.sort(big_array).reverse
+    a = Sort.sort(big_array)
 
-    n = big_array.size
+    n = a.size
     c = 2.5
     b = Bench.new
-    Sort.sort(big_array, b)
+    Sort.sort(a, b)
     b.cmps.should be < n * Math.log(n) * c
     b.swaps.should be < n * Math.log(n) * c
   end
