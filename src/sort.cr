@@ -8,12 +8,12 @@ module Sort
   end
 
   private def sort!(a, l, r, bench)
-    return unless l < r - 1
+    return unless l < r
 
     p = a[l]
     h = l
 
-    if l + 1 < r - 1
+    if l + 1 < r
       if bigger(a, p, l + 1, bench)
         swap(a, h, l + 1, bench)
       end
