@@ -30,7 +30,8 @@ describe Sort do
     n = 100
     a = (0..n).map { rand(maxv) }
 
-    Sort.sort(a).each_cons(2) do |{x, y}|
+    Sort.sort(a).each_cons(2) do |pair|
+      x, y = pair
       x.should be <= y
     end
   end
