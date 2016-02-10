@@ -49,9 +49,10 @@ describe Sort do
 
   it "is fast enough" do
     n = big_array.size
+    c = 1.5
     b = Bench.new
     Sort.sort(big_array, b)
-    b.cmps.should be < n * Math.log(n)
-    b.swaps.should be < n * Math.log(n)
+    b.cmps.should be < n * Math.log(n) * c
+    b.swaps.should be < n * Math.log(n) * c
   end
 end
