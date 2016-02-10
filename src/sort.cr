@@ -12,8 +12,10 @@ module Sort
 
     p = a[l]
 
-    if bigger(a, p, l + 1, bench)
-      swap(a, p, l + 1, bench)
+    if l + 1 < r - 1
+      if bigger(a, p, l + 1, bench)
+        swap(a, p, l + 1, bench)
+      end
     end
   end
 
