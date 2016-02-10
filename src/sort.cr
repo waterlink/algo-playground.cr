@@ -11,10 +11,11 @@ module Sort
     return unless l < a.size
 
     i = l + 1
-    if a.size > i
+    while a.size > i
       if a[l] > a[i]
         a[l], a[i] = {a[i], a[l]}
       end
+      i += 1
     end
 
     sort!(a, l + 1)
