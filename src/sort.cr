@@ -1,6 +1,6 @@
 class Sort
   def self.sort(a, bench=nil)
-    new(a.dup, bench).sort!
+    #new(a.dup, bench).sort!
   end
 
   private getter a, bench
