@@ -31,7 +31,6 @@ module Sort
   end
 
   private def swap(a, i, j, bench)
-    pp bench
     bench && bench.swaps += 1
     a[i], a[j] = {a[j], a[i]}
   end
