@@ -25,6 +25,9 @@ describe Sort do
     Sort.sort([4, 3, 2, 1]).should eq([1, 2, 3, 4])
   end
 
+  it "sorts a random array" do
+  end
+
   it "does not modify original array" do
     a = [2, 1]
     Sort.sort(a)
