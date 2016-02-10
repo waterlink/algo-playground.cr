@@ -23,7 +23,7 @@ class Sort
   private def partition(l, r)
     with_pivot(l, r) do |p|
       (l...r).reduce(l) do |h, i|
-        correct_order(a, p, h, i, bench)
+        correct_order(p, h, i)
       end
     end
   end
