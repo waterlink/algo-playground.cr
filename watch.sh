@@ -45,7 +45,7 @@ commit_message() {
 
 watch src spec \
   | while read change; do
-    crystal spec --no-color > .watch.out
+    crystal spec --no-color --fail-fast > .watch.out
     res=$?
     committed=
 
