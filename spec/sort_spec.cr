@@ -7,6 +7,7 @@ end
 
 describe Sort do
   empty = [] of Int32
+  big_array = (0..n).map { rand(100) }
 
   it "sorts distinct items" do
     Sort.sort(empty).should eq(empty)
