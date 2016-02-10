@@ -1,13 +1,13 @@
 module Sort
   extend self
 
-  def sort(a)
+  def sort(a, bench=nil)
     a = a.dup
     sort!(a)
     a
   end
 
-  private def sort!(a, l = 0)
+  private def sort!(a, l = 0, bench=nil)
     return unless l < a.size
 
     i = l + 1
