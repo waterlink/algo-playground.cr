@@ -38,10 +38,10 @@ class Sort
   end
 
   private def with_pivot(l, r)
-    swap(a, l + rand(r - l), r - 1, bench)
+    swap(l + rand(r - l), r - 1)
 
     yield(a[r - 1]).tap do |h|
-      swap(a, h, r - 1, bench)
+      swap(h, r - 1)
     end
   end
 
