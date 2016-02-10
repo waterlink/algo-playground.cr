@@ -16,22 +16,23 @@ module Sort
     if h < h2
       if bigger(a, h, h2, bench)
         swap(a, h, h2, bench)
+        h2 -= 1
       end
     end
 
-    h2 -= 1
 
     if h < h2
       if bigger(a, h, h2, bench)
         swap(a, h, h2, bench)
+        h2 -= 1
       end
     end
 
-    h2 -= 1
 
     if h < h2
       if bigger(a, h, h2, bench)
         swap(a, h, h2, bench)
+        h2 -= 1
       end
     end
 
