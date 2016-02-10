@@ -23,15 +23,15 @@ class Sort
 
   private def partition(left, right)
     with_pivot(left, right) do |pivot|
-      (left...right).reduce(left) do |split_at, i|
-        correct_order(pivot, split_at, i)
+      (left...right).reduce(left) do |split_at, index|
+        correct_order(pivot, split_at, index)
       end
     end
   end
 
-  private def correct_order(pivot, split_at, i)
-    if bigger(pivot, i)
-      swap(split_at, i)
+  private def correct_order(pivot, split_at, index)
+    if bigger(pivot, index)
+      swap(split_at, index)
       return split_at + 1
     end
 
@@ -50,14 +50,14 @@ class Sort
     [] of Int32
   end
 
-  private def bigger(x, i)
+  private def bigger(x, index)
     bench && bench.cmps += 1
-    x > ary[i]
+    x > ary[index]
   end
 
-  private def swap(i, j)
+  private def swap(index, index_2)
     bench && bench.swaps += 1
-    ary[i], ary[j] = {ary[j], ary[i]}
+    ary[index], ary[index_2] = {ary[index_2], ary[index]}
   end
 
   class Bench
