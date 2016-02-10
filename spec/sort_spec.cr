@@ -50,7 +50,7 @@ describe Sort do
   it "is fast enough" do
     b = Bench.new
     Sort.sort(big_array, b)
-    b.cmps.should be < 2.5 * big_array.size
+    b.cmps.should be < 7.5 * big_array.size
     b.swaps.should be < 2.5 * big_array.size
   end
 end
