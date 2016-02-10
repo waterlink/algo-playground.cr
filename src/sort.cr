@@ -10,7 +10,7 @@ module Sort
   private def sort!(a, l, r, bench)
     return unless l < r
 
-    swap(a, l + rand(r - l), r - 1, bench)
+    #swap(a, l + rand(r - l), r - 1, bench)
     p = a[r - 1]
     h = l
 
