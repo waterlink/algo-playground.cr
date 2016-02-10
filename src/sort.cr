@@ -10,11 +10,13 @@ module Sort
   private def sort!(a, l, r, bench)
     return unless l < r - 1
 
+    p = a[l]
+
     h = l
     h2 = r - 1
 
     if h < h2
-      if bigger(a, h, h2, bench)
+      if bigger(a, p, h, bench)
         swap(a, h, h2, bench)
         h2 -= 1
       else
@@ -24,7 +26,7 @@ module Sort
 
 
     if h < h2
-      if bigger(a, h, h2, bench)
+      if bigger(a, p, h, bench)
         swap(a, h, h2, bench)
         h2 -= 1
       else
@@ -34,7 +36,7 @@ module Sort
 
 
     if h < h2
-      if bigger(a, h, h2, bench)
+      if bigger(a, p, h, bench)
         swap(a, h, h2, bench)
         h2 -= 1
       else
@@ -49,9 +51,9 @@ module Sort
     [] of Int32
   end
 
-  private def bigger(a, i, j, bench)
+  private def bigger(a, x, i, bench)
     bench && bench.cmps += 1
-    a[i] > a[j]
+    x > a[j]
   end
 
   private def swap(a, i, j, bench)
