@@ -6,7 +6,7 @@ module Sort
   end
 
   private def sort!(a, l = 0)
-    return unless l < a.size
+    return a unless l < a.size
 
     if a.size > l + 1
       if a[l] > a[l + 1]
