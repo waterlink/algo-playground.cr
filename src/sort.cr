@@ -1,16 +1,16 @@
 class Sort
-  def self.sort(a, bench=nil)
-    new(a.dup, bench).sort!
+  def self.sort(ary, bench=nil)
+    new(ary.dup, bench).sort!
   end
 
-  private getter a, bench
-  def initialize(@a, bench)
+  private getter ary, bench
+  def initialize(@ary, bench)
     @bench = bench || Bench.new
   end
 
   def sort!
-    sort!(0, a.size)
-    a
+    sort!(0, ary.size)
+    ary
   end
 
   private def sort!(l, r)
@@ -41,7 +41,7 @@ class Sort
   private def with_pivot(l, r)
     swap(l + rand(r - l), r - 1)
 
-    yield(a[r - 1]).tap do |h|
+    yield(ary[r - 1]).tap do |h|
       swap(h, r - 1)
     end
   end
@@ -52,12 +52,12 @@ class Sort
 
   private def bigger(x, i)
     bench && bench.cmps += 1
-    x > a[i]
+    x > ary[i]
   end
 
   private def swap(i, j)
     bench && bench.swaps += 1
-    a[i], a[j] = {a[j], a[i]}
+    ary[i], ary[j] = {ary[j], ary[i]}
   end
 
   class Bench
