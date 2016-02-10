@@ -22,7 +22,7 @@ module Sort
 
     i = l
     while i < r
-      h = correct_order(a, p, h, i, bigger)
+      h = correct_order(a, p, h, i, bench)
       i += 1
     end
 
