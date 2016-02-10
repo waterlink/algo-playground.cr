@@ -39,10 +39,11 @@ class Sort
   end
 
   private def with_pivot(left, right)
-    swap(left + rand(right - left), right - 1)
+    pivot_at = right - 1
+    swap(left + rand(right - left), pivot_at)
 
-    yield(ary[right - 1]).tap do |split_at|
-      swap(split_at, right - 1)
+    yield(ary[pivot_at]).tap do |split_at|
+      swap(split_at, pivot_at)
     end
   end
 
