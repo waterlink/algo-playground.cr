@@ -13,17 +13,17 @@ class Sort
     ary
   end
 
-  private def sort!(l, r)
-    return unless l < r
+  private def sort!(left, r)
+    return unless left < r
 
-    h = partition(l, r)
-    sort!(l, h)
+    h = partition(left, r)
+    sort!(left, h)
     sort!(h + 1, r)
   end
 
-  private def partition(l, r)
-    with_pivot(l, r) do |p|
-      (l...r).reduce(l) do |h, i|
+  private def partition(left, r)
+    with_pivot(left, r) do |p|
+      (left...r).reduce(left) do |h, i|
         correct_order(p, h, i)
       end
     end
@@ -38,8 +38,8 @@ class Sort
     h
   end
 
-  private def with_pivot(l, r)
-    swap(l + rand(r - l), r - 1)
+  private def with_pivot(left, r)
+    swap(left + rand(r - left), r - 1)
 
     yield(ary[r - 1]).tap do |h|
       swap(h, r - 1)
