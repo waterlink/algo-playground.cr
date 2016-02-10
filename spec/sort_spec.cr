@@ -31,13 +31,15 @@ describe Sort do
   end
 
   it "sorts a random array" do
-    maxv = 100
-    n = 100
-    a = (0..n).map { rand(maxv) }
+    10.times do
+      maxv = 10000
+      n = 10000
+      a = (0..n).map { rand(maxv) }
 
-    Sort.sort(a).each_cons(2) do |pair|
-      x, y = pair
-      x.should be <= y
+      Sort.sort(a).each_cons(2) do |pair|
+        x, y = pair
+        x.should be <= y
+      end
     end
   end
 
