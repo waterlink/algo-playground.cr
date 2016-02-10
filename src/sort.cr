@@ -16,33 +16,33 @@ class Sort
   private def sort!(left, right)
     return unless left < right
 
-    h = partition(left, right)
-    sort!(left, h)
-    sort!(h + 1, right)
+    divided_at = partition(left, right)
+    sort!(left, divided_at)
+    sort!(divided_at + 1, right)
   end
 
   private def partition(left, right)
     with_pivot(left, right) do |p|
-      (left...right).reduce(left) do |h, i|
-        correct_order(p, h, i)
+      (left...right).reduce(left) do |divided_at, i|
+        correct_order(p, divided_at, i)
       end
     end
   end
 
-  private def correct_order(p, h, i)
+  private def correct_order(p, divided_at, i)
     if bigger(p, i)
-      swap(h, i)
-      return h + 1
+      swap(divided_at, i)
+      return divided_at + 1
     end
 
-    h
+    divided_at
   end
 
   private def with_pivot(left, right)
     swap(left + rand(right - left), right - 1)
 
-    yield(ary[right - 1]).tap do |h|
-      swap(h, right - 1)
+    yield(ary[right - 1]).tap do |divided_at|
+      swap(divided_at, right - 1)
     end
   end
 
