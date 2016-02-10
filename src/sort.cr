@@ -7,7 +7,7 @@ module Sort
     a
   end
 
-  private def sort!(a, l = 0, bench=nil)
+  private def sort!(a, l = 0, bench)
     return unless l < a.size
 
     i = l + 1
@@ -23,5 +23,15 @@ module Sort
 
   private def empty
     [] of Int32
+  end
+
+  private def cmp(a, i, j, bench)
+    bench && bench.cmps += 1
+    a[i] > a[j]
+  end
+
+  private def swap(a, i, j, bench)
+    bench && bench.swaps += 1
+    a[i], a[j] = {a[j], a[i]}
   end
 end
