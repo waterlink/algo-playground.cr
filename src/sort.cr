@@ -10,10 +10,16 @@ module Sort
   private def sort!(a, l, bench)
     return unless l < a.size
 
+    h = l
+    h2 = a.size - 1
     i = l + 1
     while a.size > i
-      if cmp(a, l, i, bench)
-        swap(a, l, i, bench)
+      if bigger(a, l, i, bench)
+        swap(a, h, i, bench)
+        h += 1
+      else
+        swap(a, h2, i, bench)
+        h2 -= 1
       end
       i += 1
     end
@@ -25,7 +31,7 @@ module Sort
     [] of Int32
   end
 
-  private def cmp(a, i, j, bench)
+  private def bigger(a, i, j, bench)
     bench && bench.cmps += 1
     a[i] > a[j]
   end
