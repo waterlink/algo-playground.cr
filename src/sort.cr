@@ -3,7 +3,7 @@ module Sort
 
   def sort(a, bench=nil)
     a = a.dup
-    sort!(a)
+    sort!(a, bench)
     a
   end
 
@@ -12,13 +12,13 @@ module Sort
 
     i = l + 1
     while a.size > i
-      if a[l] > a[i]
-        a[l], a[i] = {a[i], a[l]}
+      if cmp(a, l, i, bench)
+        swap(a, l, i, bench)
       end
       i += 1
     end
 
-    sort!(a, l + 1)
+    sort!(a, l + 1, bench)
   end
 
   private def empty
