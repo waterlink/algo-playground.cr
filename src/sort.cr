@@ -2,9 +2,11 @@ module Sort
   extend self
 
   def sort(a, bench=nil)
-    a = a.dup
+    sort!(a, bench)
+  end
+
+  private def sort!(a, bench)
     sort!(a, 0, a.size, bench)
-    a
   end
 
   private def sort!(a, l, r, bench)
