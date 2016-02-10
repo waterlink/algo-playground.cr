@@ -21,9 +21,8 @@ module Sort
       (l...r).each do |i|
         h = correct_order(a, p, h, i, bench)
       end
+      h
     end
-
-    h
   end
 
   private def correct_order(a, p, h, i, bench)
@@ -37,8 +36,9 @@ module Sort
 
   private def with_pivot(a, l, r, bench)
     swap(a, l + rand(r - l), r - 1, bench)
-    yield(a[r - 1])
+    h = yield(a[r - 1])
     swap(a, h, r - 1, bench)
+    h
   end
 
   private def empty
