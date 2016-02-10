@@ -13,18 +13,13 @@ module Sort
     p = a[r - 1]
     h = l
 
-    if l < r
-      if bigger(a, p, l, bench)
-        swap(a, h, l, bench)
+    i = l
+    while i < r
+      if bigger(a, p, i, bench)
+        swap(a, h, i, bench)
         h += 1
       end
-    end
-
-    if l + 1 < r
-      if bigger(a, p, l + 1, bench)
-        swap(a, h, l + 1, bench)
-        h += 1
-      end
+      i += 1
     end
 
     swap(a, h, r - 1, bench)
