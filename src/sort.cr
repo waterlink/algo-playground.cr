@@ -2,7 +2,7 @@ module Sort
   extend self
 
   def sort(a, bench=nil)
-    sort!(a, bench)
+    sort!(a.dup, bench)
   end
 
   private def sort!(a, bench)
