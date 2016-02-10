@@ -7,7 +7,7 @@ module Sort
     a
   end
 
-  private def sort!(a, l = 0, bench)
+  private def sort!(a, l = 0, bench=nil)
     return unless l < a.size
 
     i = l + 1
