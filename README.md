@@ -3,6 +3,9 @@
 My personal playground repo, where I am doing some experiments with algorithms.
 Uses Crystal lang at the moment.
 
+DISCLAIMER: This project uses auto-funny-commit functionality, so don't be
+surprised, it has very strange commit messages.
+
 ## Contributing
 
 1. Fork it ( https://github.com/waterlink/tdd-sort2/fork )
