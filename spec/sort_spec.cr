@@ -1,7 +1,7 @@
 require "./spec_helper"
 require "../src/sort"
 
-class Bench do
+class Bench
   property cmps, swaps
   def initialize(@cmps=0, @swaps=0)
   end
