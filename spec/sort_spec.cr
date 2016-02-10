@@ -1,12 +1,6 @@
 require "./spec_helper"
 require "../src/sort"
 
-class Bench
-  property cmps, swaps
-  def initialize(@cmps=0, @swaps=0)
-  end
-end
-
 describe Sort do
   empty = [] of Int32
   big_array = ->(n : Int32, m : Int32) { (0..n).map { rand(m) } }
@@ -56,7 +50,7 @@ describe Sort do
 
     n = a.size
     c = 2.5
-    b = Bench.new
+    b = Sort::Bench.new
     Sort.sort(a, b)
     b.cmps.should be < n * Math.log(n) * c
     b.swaps.should be < n * Math.log(n) * c
@@ -67,7 +61,7 @@ describe Sort do
 
     n = a.size
     c = 2.5
-    b = Bench.new
+    b = Sort::Bench.new
     Sort.sort(a, b)
     b.cmps.should be < n * Math.log(n) * c
     b.swaps.should be < n * Math.log(n) * c

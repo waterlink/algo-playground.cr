@@ -1,24 +1,26 @@
-module Sort
-  extend self
-
-  def sort(a, bench=nil)
-    sort!(a.dup, bench)
+class Sort
+  def self.sort(a, bench=nil)
+    new(a.dup, bench).sort!
   end
 
-  private def sort!(a, bench)
+  private getter a, bench
+  def initialize(@a, @bench)
+  end
+
+  def sort!
     sort!(a, 0, a.size, bench)
     a
   end
 
-  private def sort!(a, l, r, bench)
+  private def sort!(l, r)
     return unless l < r
 
     h = partition(a, l, r, bench)
-    sort!(a, l, h, bench)
-    sort!(a, h + 1, r, bench)
+    sort!(l, h)
+    sort!(h + 1, r)
   end
 
-  private def partition(a, l, r, bench)
+  private def partition(l, r)
     with_pivot(a, l, r, bench) do |p|
       (l...r).reduce(l) do |h, i|
         correct_order(a, p, h, i, bench)
@@ -26,7 +28,7 @@ module Sort
     end
   end
 
-  private def correct_order(a, p, h, i, bench)
+  private def correct_order(p, h, i)
     if bigger(a, p, i, bench)
       swap(a, h, i, bench)
       return h + 1
@@ -35,7 +37,7 @@ module Sort
     h
   end
 
-  private def with_pivot(a, l, r, bench)
+  private def with_pivot(l, r)
     swap(a, l + rand(r - l), r - 1, bench)
 
     yield(a[r - 1]).tap do |h|
@@ -47,13 +49,19 @@ module Sort
     [] of Int32
   end
 
-  private def bigger(a, x, i, bench)
+  private def bigger(x, i)
     bench && bench.cmps += 1
     x > a[i]
   end
 
-  private def swap(a, i, j, bench)
+  private def swap(i, j)
     bench && bench.swaps += 1
     a[i], a[j] = {a[j], a[i]}
+  end
+
+  class Bench
+    property cmps, swaps
+    def initialize(@cmps=0, @swaps=0)
+    end
   end
 end
