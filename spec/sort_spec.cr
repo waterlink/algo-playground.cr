@@ -59,7 +59,7 @@ describe Sort do
   end
 
   it "is fast enough given ordered array" do
-    a = Sort.sort(big_array)
+    a = Sort.sort(big_array).reverse
 
     n = big_array.size
     c = 2.5
