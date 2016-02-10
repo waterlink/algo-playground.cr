@@ -17,11 +17,9 @@ module Sort
 
   private def partition(a, l, r, bench)
     with_pivot(a, l, r, bench) do |p|
-      h = l
-      (l...r).each do |i|
-        h = correct_order(a, p, h, i, bench)
+      (l...r).reduce(l) do |h, i|
+        correct_order(a, p, h, i, bench)
       end
-      h
     end
   end
 
