@@ -15,7 +15,7 @@ class Sort
   private def sort!(l, r)
     return unless l < r
 
-    h = partition(a, l, r, bench)
+    h = partition(l, r)
     sort!(l, h)
     sort!(h + 1, r)
   end
