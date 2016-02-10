@@ -4,7 +4,8 @@ class Sort
   end
 
   private getter a, bench
-  def initialize(@a, @bench)
+  def initialize(@a, bench)
+    @bench = bench || Bench.new
   end
 
   def sort!
