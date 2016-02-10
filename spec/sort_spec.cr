@@ -1,6 +1,8 @@
 require "./spec_helper"
 require "../src/sort"
 
+record Bench, cmps, swaps
+
 describe Sort do
   empty = [] of Int32
 
