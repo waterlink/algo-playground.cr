@@ -24,4 +24,11 @@ describe Sort do
     Sort.sort(a)
     a.should eq([2, 1])
   end
+
+  it "is fast enough" do
+    b = Bench.new(0, 0)
+    Sort.sort([3, 2, 1], b)
+    b.cmps.should be < 5
+    b.swaps.should be < 3
+  end
 end
