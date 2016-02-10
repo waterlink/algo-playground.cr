@@ -9,7 +9,7 @@ end
 
 describe Sort do
   empty = [] of Int32
-  big_array = (0..100000).map { rand(100000) }
+  big_array = ->(n : Int32, m : Int32) { (0..n).map { rand(m) } }
 
   it "sorts distinct items" do
     Sort.sort(empty).should eq(empty)
@@ -30,11 +30,13 @@ describe Sort do
     Sort.sort([3, 2, 1, 4, 5]).should eq([1, 2, 3, 4, 5])
   end
 
+  it "works with duplicated items" do
+    Sort.sort([3, 2, 1, 1, 3, 4, 2]).should eq([1, 1, 2, 2, 3, 3, 4])
+  end
+
   it "sorts a random array" do
     10.times do
-      maxv = 10000
-      n = 10000
-      a = (0..n).map { rand(maxv) }
+      a = big_array.call(10000, 1000)
 
       Sort.sort(a).each_cons(2) do |pair|
         x, y = pair
@@ -50,16 +52,18 @@ describe Sort do
   end
 
   it "is fast enough" do
-    n = big_array.size
+    a = big_array.call(1000000, 100000)
+
+    n = a.size
     c = 2.5
     b = Bench.new
-    Sort.sort(big_array, b)
+    Sort.sort(a, b)
     b.cmps.should be < n * Math.log(n) * c
     b.swaps.should be < n * Math.log(n) * c
   end
 
-  it "is fast enough given ordered array" do
-    a = Sort.sort(big_array)
+  it "handles ordered array quickly" do
+    a = Sort.sort(big_array.call(1000, 100))
 
     n = a.size
     c = 2.5

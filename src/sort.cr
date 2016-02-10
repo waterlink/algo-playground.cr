@@ -10,7 +10,13 @@ module Sort
   private def sort!(a, l, r, bench)
     return unless l < r
 
-    #swap(a, l + rand(r - l), r - 1, bench)
+    h = partition(a, l, r, bench)
+    sort!(a, l, h, bench)
+    sort!(a, h + 1, r, bench)
+  end
+
+  private def partition(a, l, r, bench)
+    swap(a, l + rand(r - l), r - 1, bench)
     p = a[r - 1]
     h = l
 
@@ -24,9 +30,7 @@ module Sort
     end
 
     swap(a, h, r - 1, bench)
-
-    sort!(a, l, h, bench)
-    sort!(a, h + 1, r, bench)
+    h
   end
 
   private def empty
