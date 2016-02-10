@@ -8,7 +8,7 @@ class Sort
   end
 
   def sort!
-    sort!(a, 0, a.size, bench)
+    sort!(0, a.size)
     a
   end
 
