@@ -49,7 +49,7 @@ describe Sort do
     b = Bench.new
     Sort.sort(big_array, b)
     pp b
-    b.cmps.should be < 250
-    b.swaps.should be < 250
+    b.cmps.should be < 2.5 * big_array.size
+    b.swaps.should be < 2.5 * big_array.size
   end
 end
