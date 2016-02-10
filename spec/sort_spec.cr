@@ -1,7 +1,9 @@
 require "./spec_helper"
 require "../src/sort"
 
-record Bench, cmps, swaps
+record Bench, cmps, swaps do
+  setter cmps, swaps
+end
 
 describe Sort do
   empty = [] of Int32
