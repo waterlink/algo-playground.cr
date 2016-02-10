@@ -13,6 +13,8 @@ module Sort
     if bigger(a, l, r - 1, bench)
       swap(a, l, r - 1, bench)
     end
+
+    sort!(a, l + 1, r, bench)
   end
 
   private def empty
