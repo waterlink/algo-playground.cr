@@ -37,7 +37,7 @@ module Sort
   private def with_pivot(a, l, r, bench)
     swap(a, l + rand(r - l), r - 1, bench)
 
-    yield(a[r - 1]).tap do
+    yield(a[r - 1]).tap do |h|
       swap(a, h, r - 1, bench)
     end
   end
