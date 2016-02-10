@@ -26,6 +26,8 @@ describe Sort do
     Sort.sort([3, 1, 2]).should eq([1, 2, 3])
 
     Sort.sort([4, 3, 2, 1]).should eq([1, 2, 3, 4])
+
+    Sort.sort([5, 4, 3, 2, 1]).should eq([1, 2, 3, 4, 5])
   end
 
   it "sorts a random array" do
