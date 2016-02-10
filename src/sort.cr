@@ -22,15 +22,15 @@ class Sort
   end
 
   private def partition(left, right)
-    with_pivot(left, right) do |p|
+    with_pivot(left, right) do |pivot|
       (left...right).reduce(left) do |split_at, i|
-        correct_order(p, split_at, i)
+        correct_order(pivot, split_at, i)
       end
     end
   end
 
-  private def correct_order(p, split_at, i)
-    if bigger(p, i)
+  private def correct_order(pivot, split_at, i)
+    if bigger(pivot, i)
       swap(split_at, i)
       return split_at + 1
     end
