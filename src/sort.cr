@@ -21,7 +21,7 @@ class Sort
   end
 
   private def partition(l, r)
-    with_pivot(a, l, r, bench) do |p|
+    with_pivot(l, r) do |p|
       (l...r).reduce(l) do |h, i|
         correct_order(a, p, h, i, bench)
       end
