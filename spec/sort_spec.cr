@@ -47,6 +47,7 @@ describe Sort do
   it "is fast enough" do
     b = Bench.new(0, 0)
     Sort.sort(big_array, b)
+    pp b
     b.cmps.should be < 5
     b.swaps.should be < 3
   end
