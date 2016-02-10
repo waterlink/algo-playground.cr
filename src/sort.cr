@@ -53,7 +53,7 @@ module Sort
 
   private def bigger(a, x, i, bench)
     bench && bench.cmps += 1
-    x > a[j]
+    x > a[i]
   end
 
   private def swap(a, i, j, bench)
