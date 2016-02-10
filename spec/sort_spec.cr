@@ -32,6 +32,7 @@ describe Sort do
 
     Sort.sort(a).each_cons(2) do |pair|
       x, y = pair
+      pp pair
       x.should be <= y
     end
   end
