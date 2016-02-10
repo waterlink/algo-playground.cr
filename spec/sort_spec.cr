@@ -8,7 +8,7 @@ end
 describe Sort do
   empty = [] of Int32
 
-  it "sorts" do
+  it "sorts distinct items" do
     Sort.sort(empty).should eq(empty)
     Sort.sort([1]).should eq([1])
 
@@ -26,6 +26,13 @@ describe Sort do
   end
 
   it "sorts a random array" do
+    maxv = 100
+    n = 100
+    a = (0..n).map { rand(maxv) }
+
+    Sort.sort(a).each_cons(2) do |x, y|
+      x.should be <= y
+    end
   end
 
   it "does not modify original array" do
