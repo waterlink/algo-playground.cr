@@ -14,6 +14,10 @@ module Sort
       swap(a, l, r - 1, bench)
     end
 
+    if bigger(a, l, r - 2, bench)
+      swap(a, l, r - 2, bench)
+    end
+
     sort!(a, l + 1, r, bench)
   end
 
