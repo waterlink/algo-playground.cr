@@ -10,9 +10,10 @@ module Sort
   private def sort!(a, l = 0)
     return unless l < a.size
 
-    if a.size > l + 1
-      if a[l] > a[l + 1]
-        a[l], a[l + 1] = {a[l + 1], a[l]}
+    i = l + 1
+    if a.size > i
+      if a[l] > a[i]
+        a[l], a[i] = {a[i], a[l]}
       end
     end
 
