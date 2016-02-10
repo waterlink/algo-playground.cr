@@ -1,8 +1,10 @@
 require "./spec_helper"
 require "../src/sort"
 
-record Bench, cmps, swaps do
-  setter cmps, swaps
+class Bench do
+  property cmps, swaps
+  def initialize(@cmps=0, @swaps=0)
+  end
 end
 
 describe Sort do
@@ -45,7 +47,7 @@ describe Sort do
   end
 
   it "is fast enough" do
-    b = Bench.new(0, 0)
+    b = Bench.new
     Sort.sort(big_array, b)
     pp b
     b.cmps.should be < 5
