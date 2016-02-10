@@ -8,7 +8,7 @@ module Sort
   end
 
   private def sort!(a, l, r, bench)
-    return unless l < a.size
+    return unless l < r - 1
 
     h = l
     h2 = r - 1
