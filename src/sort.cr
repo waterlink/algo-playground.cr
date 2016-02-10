@@ -20,10 +20,8 @@ module Sort
     p = a[r - 1]
     h = l
 
-    i = l
-    while i < r
+    (l..r).each do |i|
       h = correct_order(a, p, h, i, bench)
-      i += 1
     end
 
     swap(a, h, r - 1, bench)
