@@ -16,12 +16,14 @@ module Sort
     if l < r
       if bigger(a, p, l, bench)
         swap(a, h, l, bench)
+        h += 1
       end
     end
 
     if l + 1 < r
       if bigger(a, p, l + 1, bench)
         swap(a, h, l + 1, bench)
+        h += 1
       end
     end
 
