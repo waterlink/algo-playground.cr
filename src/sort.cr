@@ -22,14 +22,20 @@ module Sort
 
     i = l
     while i < r
-      if bigger(a, p, i, bench)
-        swap(a, h, i, bench)
-        h += 1
-      end
+      h = correct_order(a, p, h, i, bigger)
       i += 1
     end
 
     swap(a, h, r - 1, bench)
+    h
+  end
+
+  private def correct_order(a, p, h, i, bench)
+    if bigger(a, p, i, bench)
+      swap(a, h, i, bench)
+      return h + 1
+    end
+
     h
   end
 
