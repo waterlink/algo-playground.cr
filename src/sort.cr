@@ -20,7 +20,7 @@ module Sort
     p = a[r - 1]
     h = l
 
-    (l..r).each do |i|
+    (l...r).each do |i|
       h = correct_order(a, p, h, i, bench)
     end
 
