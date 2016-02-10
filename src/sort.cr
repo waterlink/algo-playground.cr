@@ -29,8 +29,8 @@ class Sort
   end
 
   private def correct_order(p, h, i)
-    if bigger(a, p, i, bench)
-      swap(a, h, i, bench)
+    if bigger(p, i)
+      swap(h, i)
       return h + 1
     end
 
