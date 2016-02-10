@@ -14,13 +14,13 @@ module Sort
     h = l
 
     if l < r
-      if bigger(a, p, l, bench)
+      if less_or_eq(a, p, l, bench)
         swap(a, h, l, bench)
       end
     end
 
     if l + 1 < r
-      if bigger(a, p, l + 1, bench)
+      if less_or_eq(a, p, l + 1, bench)
         swap(a, h, l + 1, bench)
       end
     end
@@ -30,9 +30,9 @@ module Sort
     [] of Int32
   end
 
-  private def bigger(a, x, i, bench)
+  private def less_or_eq(a, x, i, bench)
     bench && bench.cmps += 1
-    x > a[i]
+    x <= a[i]
   end
 
   private def swap(a, i, j, bench)
