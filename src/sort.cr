@@ -7,6 +7,7 @@ module Sort
 
   private def sort!(a, bench)
     sort!(a, 0, a.size, bench)
+    a
   end
 
   private def sort!(a, l, r, bench)
