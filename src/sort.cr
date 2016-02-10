@@ -9,23 +9,6 @@ module Sort
 
   private def sort!(a, l, r, bench)
     return unless l < r - 1
-
-    h = l
-    h2 = r - 1
-    i = l + 1
-    while r > i
-      if bigger(a, l, i, bench)
-        swap(a, h, i, bench)
-        h += 1
-      else
-        swap(a, h2, i, bench)
-        h2 -= 1
-      end
-      i += 1
-    end
-
-    sort!(a, l, h, bench)
-    sort!(a, h + 1, r, bench)
   end
 
   private def empty
