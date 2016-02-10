@@ -36,9 +36,10 @@ module Sort
 
   private def with_pivot(a, l, r, bench)
     swap(a, l + rand(r - l), r - 1, bench)
-    h = yield(a[r - 1])
-    swap(a, h, r - 1, bench)
-    h
+
+    yield(a[r - 1]).tap do
+      swap(a, h, r - 1, bench)
+    end
   end
 
   private def empty
