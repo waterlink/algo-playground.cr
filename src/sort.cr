@@ -17,6 +17,8 @@ module Sort
       if bigger(a, h, h2, bench)
         swap(a, h, h2, bench)
         h2 -= 1
+      else
+        h += 1
       end
     end
 
@@ -25,6 +27,8 @@ module Sort
       if bigger(a, h, h2, bench)
         swap(a, h, h2, bench)
         h2 -= 1
+      else
+        h += 1
       end
     end
 
@@ -33,6 +37,8 @@ module Sort
       if bigger(a, h, h2, bench)
         swap(a, h, h2, bench)
         h2 -= 1
+      else
+        h += 1
       end
     end
 
