@@ -3,11 +3,11 @@ module Sort
 
   def sort(a, bench=nil)
     a = a.dup
-    sort!(a, bench)
+    sort!(a, 0, bench)
     a
   end
 
-  private def sort!(a, l = 0, bench=nil)
+  private def sort!(a, l, bench)
     return unless l < a.size
 
     i = l + 1
