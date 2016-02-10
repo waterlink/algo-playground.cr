@@ -18,6 +18,12 @@ module Sort
         swap(a, h, l, bench)
       end
     end
+
+    if l + 1 < r
+      if bigger(a, p, l + 1, bench)
+        swap(a, h, l + 1, bench)
+      end
+    end
   end
 
   private def empty
